@@ -1,10 +1,10 @@
+import { useTodoDispatch } from "../App";
 import { Todo } from "../types";
-interface Props extends Todo {
-  onClickDelete: (id: number) => void;
-} // 기본적으로 Todo의 props를 받게 됨
+interface Props extends Todo {}
 export default function TodoItem(props: Props) {
+  const dispatch = useTodoDispatch();
   const onClickButton = () => {
-    props.onClickDelete(props.id);
+    dispatch.onClickDelete(props.id);
   };
   return (
     <div>
